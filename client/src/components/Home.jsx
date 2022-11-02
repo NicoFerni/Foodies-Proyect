@@ -51,7 +51,6 @@ export default function Home (){
                         <Link to ={`/home${c.id}`}>
                         <Card title = {c.title} image ={c.image} diets = {c.diets} key = {c.id} />
                         </Link>
- 
                     </Fragment>
                 )
                 
@@ -62,7 +61,3 @@ export default function Home (){
     )
 
 }
-
-// tipo de dieta
-// orden alfabetico (ascendente, descendente)
-// por health score
