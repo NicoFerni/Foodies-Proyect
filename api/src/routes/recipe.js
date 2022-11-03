@@ -2,6 +2,8 @@ const {getAllRecipes} = require('../controllers/controllers');
 const { Recipe, Diet } = require('../db');
 
 
+
+
 const recipes = async (req, res) => {
     const {name} = req.query
     let allRecipes = await getAllRecipes();
@@ -17,7 +19,7 @@ const recipes = async (req, res) => {
 }
 
 const createRecipe = async (req, res) => { 
-    let { name, summary, healthScore, steps } = req.body
+    let { name, summary, healthScore, steps, diet } = req.body
     if (!name) res.send('El nombre es obligatorio');
     let newRecipe = await Recipe.create({
         name, 
@@ -26,7 +28,7 @@ const createRecipe = async (req, res) => {
         steps 
     });
     let dietTypes = await Diet.findAll({
-        where: {name: diets}
+        where: {name: diet}    
     })
           
     newRecipe.addDiet(dietTypes);
@@ -46,7 +48,6 @@ const recipeId = async (req, res) => {
         res.status(404).send('El id no coincide con ninguna receta.')
 }
 }
-
 module.exports = {
     recipes,
     createRecipe,

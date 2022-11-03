@@ -22,9 +22,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    stepByStep:{
-      type: DataTypes.STRING,
-      allowNull: true,
+    steps:{
+      type: DataTypes.ARRAY(DataTypes.JSONB)
+  
     },
     createdInDb:{
       type: DataTypes.BOOLEAN,
@@ -34,8 +34,3 @@ module.exports = (sequelize) => {
   });
 };
 
-// ID: *
-// Nombre *
-// Resumen del plato *
-// Nivel de "comida saludable" (health score)
-// Paso a paso
