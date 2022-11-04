@@ -1,0 +1,49 @@
+.landingPage {
+         /* background-color: blueviolet;  */
+        background-image: url('../../images/landingImage.jpg');
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+    
+    .button {
+        background:linear-gradient(to bottom, #c74545 5%, #292966 100%);
+        background-color:#c74545;
+        border-radius:13px;
+        border:1px solid #08d61d;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:28px;
+        font-weight:bold;
+        padding:8px 43px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #6be858;
+    }
+    .button:hover {
+        background:linear-gradient(to bottom, #292966 5%, #c74545 100%);
+        background-color:#292966;
+    }
+    .button:active {
+        position:relative;
+        top:1px;
+    }
+    
+.title{
+font-family: "Arial Black", Gadget, sans-serif;
+font-size: 40px;
+letter-spacing: 5.8px;
+word-spacing: -5px;
+color: #000000;
+font-weight: 400;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
