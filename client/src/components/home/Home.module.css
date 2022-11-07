@@ -1,3 +1,4 @@
 .home{
-    background-image: url('../../images/HomeImage.jpg') ;
+    /* background-image: url('../../images/HomeImage.jpg') ; */
+    background-color: red;
 }

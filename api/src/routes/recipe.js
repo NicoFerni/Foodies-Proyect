@@ -3,7 +3,6 @@ const { Recipe, Diet } = require('../db');
 
 
 
-
 const recipes = async (req, res) => {
     const {name} = req.query
     let allRecipes = await getAllRecipes();
@@ -18,24 +17,26 @@ const recipes = async (req, res) => {
     }
 }
 
-const createRecipe = async (req, res) => { 
-    let { name, summary, healthScore, steps, diet } = req.body
-    if (!name) res.send('El nombre es obligatorio');
-    let newRecipe = await Recipe.create({
-        name, 
-        summary, 
-        healthScore, 
-        steps 
-    });
-    let dietTypes = await Diet.findAll({
+
+ const createRecipe = async (req, res) => { 
+     let { name, summary, healthScore, steps, diet } = req.body
+     if (!name) res.send('El nombre es obligatorio');
+     let newRecipe = await Recipe.create({
+         name, 
+         summary, 
+         healthScore, 
+         steps
+     });
+     let dietTypes = await Diet.findAll({
         where: {name: diet}    
-    })
+     })
           
-    newRecipe.addDiet(dietTypes);
-    res.send('Receta creada con exito')
+     newRecipe.addDiet(dietTypes);
+     res.send('Receta creada con exito')
  
 
-}   
+ }   
+
 
 const recipeId = async (req, res) => {
     const {id} = req.params

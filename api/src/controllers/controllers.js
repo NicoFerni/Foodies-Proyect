@@ -15,7 +15,7 @@ const getApiRecipes = async() => {
               name: el.title,
               image: el.image,
               healthScore: el.healthScore,
-              diets: el.diets.map(el => el), 
+              diets: el.diets.map(el => el).join(','), 
               dishTypes:el.dishTypes.map(el => el),
               summary: el.summary.replaceAll(/<(“[^”]”|'[^’]’|[^'”>])*>/g, ""),
               steps: el.analyzedInstructions[0]?.steps

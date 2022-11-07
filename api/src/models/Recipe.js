@@ -24,7 +24,12 @@ module.exports = (sequelize) => {
     },
     steps:{
       type: DataTypes.ARRAY(DataTypes.JSONB)
-  
+    },
+    dishTypes :{
+      type: DataTypes.STRING,
+    },
+    image: {
+      type: DataTypes.TEXT
     },
     createdInDb:{
       type: DataTypes.BOOLEAN,

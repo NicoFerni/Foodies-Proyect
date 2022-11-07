@@ -1,0 +1,23 @@
+.card{
+        width: 24rem;
+        height: 25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0.625rem;
+        border-style: inset;
+        border-color: rgb(139, 129, 213);
+        background-color: rgba(17, 195, 201, 0.698);
+        border-radius: 0.5rem;
+    
+}
+
+.name{
+    font-family:'Courier New', Courier, monospace;
+    color:crimson;
+}
+
+.diet{
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: brown;
+}
