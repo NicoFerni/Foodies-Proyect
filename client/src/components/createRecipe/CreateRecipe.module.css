@@ -1,3 +1,56 @@
 .createRecipe{
-    background-color: chocolate;
+    background-color: blanchedalmond;
+}
+
+#form{
+    position: static;
+    width: 90%;
+    margin: auto;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+#form button{
+    background-color: aqua;
+    border-radius: 0.3rem;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 2rem;
+    font-size: large;
+}
+.diets{
+    display: block;
+}
+.danger{
+    color: red;
+}
+.form{
+   margin: 5px;
+   font-weight: bold;
+   display: flex;
+   justify-content: space-between;
+   padding: 0 30%;
+}
+.form input{
+    float: right;
+}
+.form textarea{
+    float: right;
+    width: 10.6rem;
+}
+#dtypes{
+    border-style: inset;
+    border-color: rgb(139, 129, 213);
+    max-width: fit-content;
+    margin: auto;
+    font-weight: bold;
+}
+#dtypes input{
+    float: right;
+}
+label{
+    margin-right: 2rem;
 }

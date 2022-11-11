@@ -8,14 +8,15 @@ export default function SearchBar() {
 const dispatch = useDispatch();
 const [name, setName] = useState('');
 
+
 function handleInputChange(e){
-    e.preventDefault();
-    setName(e.target.value);
+    e.preventDefault()
+    setName(e.target.value)
 }
 
 function handleSubmit(e){
-    e.preventDefault();
-    dispatch(getRecipesName(name));
+    e.preventDefault()
+    dispatch(getRecipesName(name))
 }
 
 return (
@@ -24,6 +25,7 @@ return (
             type='text'
             placeholder="Search..."
             onChange = {(e) => handleInputChange(e)}
+            value={name}
             />
             <button className={css.button} type = 'submit' onClick={(e) => handleSubmit(e)}>Search</button>
         </div>

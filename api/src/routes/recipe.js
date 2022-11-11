@@ -19,18 +19,21 @@ const recipes = async (req, res) => {
 
 
  const createRecipe = async (req, res) => { 
-     let { name, summary, healthScore, steps, diet } = req.body
+     let { name, summary, healthScore, steps, diet, dishTypes, image } = req.body
      if (!name) res.send('El nombre es obligatorio');
      let newRecipe = await Recipe.create({
          name, 
          summary, 
          healthScore, 
-         steps
+         steps: steps.split(','),
+         dishTypes,
+         image
      });
      let dietTypes = await Diet.findAll({
         where: {name: diet}    
      })
-          
+    
+     console.log(dietTypes);
      newRecipe.addDiet(dietTypes);
      res.send('Receta creada con exito')
  
