@@ -68,6 +68,9 @@ export default function CreateRecipe(){
             if(input.healthScore > 100 || input.healthScore < 0){
               errors.healthScore = 'Score can not exceed 100, nor be negative number'
             }
+            if(!input.steps){
+              errors.steps = 'You need to type the steps!'
+            }
             return errors
     
           } 
@@ -124,10 +127,11 @@ export default function CreateRecipe(){
                  </div>
 
 
-              <button disabled={errors.name || errors.summary || errors.healthScore} type="submit">Enter</button>
+              <button disabled={errors.name || errors.summary || errors.healthScore || errors.steps} type="submit">Enter</button>
               { errors.name && (<p className={css.danger}>{errors.name}</p>) }
               { errors.summary && (<p className={css.danger}>{errors.summary}</p>) }
               { errors.healthScore && (<p className={css.danger}>{errors.healthScore}</p>) }
+              {errors.steps && (<p className={css.danger}>{errors.steps}</p>)}
                </form>
              </div>
 

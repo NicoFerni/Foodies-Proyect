@@ -1,16 +1,14 @@
 .home{
     /* background-image: url('../../images/HomeImage.jpg') ; */
-    background-color: red;
+    background-color: rgb(165, 39, 39);
 }
 
-.conteinerCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;/*  el vw agarra el ancho completo de la pantalla */
-    flex-wrap: wrap;
-    flex-direction: row;
-
+.cardContainer{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 }
 
 .crearReceta{
@@ -34,4 +32,14 @@
 	top:1px;
 }
 
+.gif{
+    height: 100px;
+    width: 100px;
+
+}
+
+.title{
+	font-family: idk;
+	src: url('../../images/Hey\ Tiny\ Bold\ DEMO.ttf')
+}
 

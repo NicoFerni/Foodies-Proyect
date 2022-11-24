@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, filterByDiet, orderByName, orderHealthScore} from '../../actions';
+import { getRecipes, getRecipesName, filterByDiet, orderByName, orderHealthScore} from '../../actions';
 import { Link } from 'react-router-dom';
 import Card from '../card/Card';
 import css from './Home.module.css';
 import Paginate from '../paginate/Paginate';
 import SearchBar from '../searchBar/SearchBar';
+import gifReload from "../../images/gifReload.gif"
 
 export default function Home (){
     const dispatch = useDispatch();
@@ -16,27 +17,37 @@ export default function Home (){
     const [recipesPerPage] = useState(9);
     const lastRecipeIndex = currentPage * recipesPerPage;
     const firtsRecipeIndex = lastRecipeIndex - recipesPerPage;
-
     const currentRecipe = allRecipes.slice(firtsRecipeIndex,lastRecipeIndex); 
     
-       
+    // useEffect(() => {
+    //     if(!allRecipes.length){
+    //         dispatch(getRecipes())
+    //     }
+    //     dispatch(filterByDiet('all'))
+    // }, [])
+
+    useEffect(()=>{
+        setCurrentPage(1)
+      },[allRecipes])
+
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
     useEffect(()=>{
         dispatch(getRecipes())
-
     }, [dispatch])
         
     function handleClick(e){
         e.preventDefault();
         dispatch(getRecipes());
+        setCurrentPage(1)
     }
 
     
     function handleFilterDiet(e){
         dispatch(filterByDiet(e.target.value));
+        setCurrentPage(1)
     }
 
     function handleSort(e){
@@ -45,19 +56,20 @@ export default function Home (){
         setCurrentPage(1);
         setOrder(`Ordered ${e.target.value}`);
     }
-    const handleHealthOrder = (event) => {
-        dispatch(orderHealthScore(event.target.value))
-        setOrder(1)
-        setOrder(event.target.order)
+    const handleHealthOrder = (e) => {
+        e.preventDefault();
+        dispatch(orderHealthScore(e.target.value))
+        setCurrentPage(1)
+        setOrder(e.target.order)
       }
 
     return(
         <div className={css.home}>
-            <Link to = '/createRecipe' className={css.crearReceta}>Crear una receta</Link>
-            <h1>Foodies</h1>
+            <Link to = '/createRecipe' className={css.crearReceta}>Create your own recipe!</Link>
+            <h1 className={css.title}>Foodies</h1>
 
          <button onClick={e => {handleClick(e)}}>
-                Volver a cargar las recetas
+                Refresh
             </button> 
             <div>
                 <select onChange={(e) => handleFilterDiet(e)}>
@@ -73,20 +85,16 @@ export default function Home (){
                     <option value='fodmap friendly'>Fodmap friendly</option>
                     <option value='whole 30'>Whole30</option>
                 </select>
-                <select onChange={e => handleSort(e)}>
+                <select defaultValue= 'Order by name' onChange={e => handleSort(e)}>
+                    <option disabled value = 'Order by name'> Order by name</option>
                     <option value='asc'>Ascending</option>
                     <option value='des'>Descending</option>
                 </select>
-                <select onChange={(e)=>handleHealthOrder(e)}>
+                <select defaultValue='Health Score' onChange={(e)=>handleHealthOrder(e)}>
+                        <option disabled value='Health Score' > Health score</option>
                         <option value='highest'>Highest health score</option>
                         <option value='lowest'>Lowest health score</option>
                 </select>
-
-            {
-            allRecipes && allRecipes.map(el =>{ 
-                <Card name = {el.name} image = {el.image} diet = {el.diet} key={el.id} healthScore={el.healthScore}/>
-            })
-        } 
         <Paginate
         recipesPerPage={recipesPerPage}
         allRecipes = {allRecipes.length}
@@ -95,7 +103,10 @@ export default function Home (){
 
         <SearchBar/>
         
-        {
+        <div className={css.cardContainer}>
+        { !allRecipes.length?
+            <img src= {gifReload} className = {css.gif}/>
+            :
             currentRecipe?.map((c) =>{
                 return(
                     <div key= {c.id} className = {css.containerCard}>
@@ -107,8 +118,10 @@ export default function Home (){
                 
             })
         }
+        </div>
             </div>
         </div>
     )
 
 }
+

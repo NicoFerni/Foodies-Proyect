@@ -40,6 +40,13 @@ export function orderByName(payload){
     }
 }
 
+//  export function paginateSearchBar(payload){
+//      return{
+//          type:'PAGINATE_SEARCHBAR',
+//          payload
+//      }
+//  }
+
 export function getRecipesName(name){
     return async function (dispatch){
         try{
@@ -57,7 +64,7 @@ export function getRecipesName(name){
 export const getRecipeDetail = (id) => {
     return async (dispatch) => {
         const response = await axios.get(`http://localhost:3001/recipes/${id}`)
-        console.log(response.data)
+        console.log('detalle' , response.data)
         return dispatch({ type: 'GET_RECIPE_DETAILS', payload: response.data })
         
     }   

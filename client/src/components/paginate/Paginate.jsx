@@ -1,16 +1,16 @@
 import React from "react";
 import css from './Paginate.module.css';
 
-export default function Paginate ({recipesPerPage, allRecipes, paginate, nextPage, prevPage}){
+export default function Paginate ({recipesPerPage, allRecipes, paginate}){
     const pageNumber = [];
 
     for (let i = 1; i <= Math.ceil(allRecipes/recipesPerPage); i++){
         pageNumber.push(i);
     }
-
+    
     return (
         <nav>
-            {/* <button onClick={()=>prevPage()}>Previous</button> */}
+          
             <ul className={css.paginate}>
                 {
                     pageNumber && pageNumber.map(number =>(
@@ -20,7 +20,7 @@ export default function Paginate ({recipesPerPage, allRecipes, paginate, nextPag
                     ))
                 }
             </ul>
-            {/* <button onClick={()=>nextPage()}>Next</button> */}
+            
         </nav>
     )       
 }
