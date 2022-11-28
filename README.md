@@ -6,7 +6,6 @@ in the back-end, i made a database to save the api information and, if the user 
 Finally, in the front-end, I added some filters to make easier to search for an specific dish, I made cards to order the information and  added a form to 
 create a recipe, with all the same fields that the originals recipies have.
 
-- Construir una App utlizando React, Redux, Node y Sequelize.
 ## Technologies
 
 - React
@@ -18,4 +17,5 @@ create a recipe, with all the same fields that the originals recipies have.
 
 Nicolas Fernandez
 
+https://github.com/NicoFerni
 https://www.linkedin.com/in/nicolasfernandev/
