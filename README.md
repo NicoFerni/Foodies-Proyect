@@ -17,5 +17,5 @@ create a recipe, with all the same fields that the originals recipies have.
 
 Nicolas Fernandez
 
-https://github.com/NicoFerni
-https://www.linkedin.com/in/nicolasfernandev/
+- https://github.com/NicoFerni
+- https://www.linkedin.com/in/nicolasfernandev/
