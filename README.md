@@ -8,9 +8,10 @@ create a recipe, with all the same fields that the originals recipies have.
 
 ## Technologies
 
+- JavaScript
 - React
 - Redux
-- Node
+- NodeJs
 - Sequelize
 
 ## Author
