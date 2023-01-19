@@ -12,6 +12,8 @@ const sequelize = new Sequelize(DB_DEPLOY, {
 });
 const basename = path.basename(__filename);
 
+console.log("TEST")
+
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
