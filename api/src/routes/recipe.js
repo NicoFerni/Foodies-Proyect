@@ -32,8 +32,6 @@ const recipes = async (req, res) => {
      let dietTypes = await Diet.findAll({
         where: {name: diet}    
      })
-    
-     console.log(dietTypes);
      newRecipe.addDiet(dietTypes);
      res.send('Receta creada con exito')
  

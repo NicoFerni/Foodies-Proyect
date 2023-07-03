@@ -15,7 +15,7 @@ export default function Paginate ({recipesPerPage, allRecipes, paginate}){
                 {
                     pageNumber && pageNumber.map(number =>(
                       
-                         <a  onClick={() => paginate(number)} key={number} className={css.number}> {number} </a>
+                         <a href={() => false} onClick={() => paginate(number)} key={number} className={css.number}> {number} </a>
                         
                     ))
                 }

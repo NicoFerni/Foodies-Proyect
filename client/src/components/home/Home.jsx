@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, getRecipesName, filterByDiet, orderByName, orderHealthScore} from '../../actions';
+import { getRecipes, filterByDiet, orderByName, orderHealthScore} from '../../actions';
 import { Link } from 'react-router-dom';
 import Card from '../card/Card';
 import css from './Home.module.css';
@@ -12,19 +12,12 @@ import gifReload from "../../images/gifReload.gif"
 export default function Home (){
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.filterRecipes);
-    const [order, setOrder] = useState('');
+    const [, setOrder] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage] = useState(9);
     const lastRecipeIndex = currentPage * recipesPerPage;
     const firtsRecipeIndex = lastRecipeIndex - recipesPerPage;
     const currentRecipe = allRecipes.slice(firtsRecipeIndex,lastRecipeIndex); 
-    
-    // useEffect(() => {
-    //     if(!allRecipes.length){
-    //         dispatch(getRecipes())
-    //     }
-    //     dispatch(filterByDiet('all'))
-    // }, [])
 
     useEffect(()=>{
         setCurrentPage(1)
@@ -65,9 +58,8 @@ export default function Home (){
 
     return(
         <div className={css.home}>
-            <Link to = '/createRecipe' className={css.crearReceta}>Create your own recipe!</Link>
             <h1 className={css.title}>Foodies</h1>
-
+            <Link to = '/createRecipe' className={css.crearReceta}>Create your own recipe!</Link>
          <button onClick={e => {handleClick(e)}}>
                 Refresh
             </button> 
@@ -95,7 +87,7 @@ export default function Home (){
                         <option value='highest'>Highest health score</option>
                         <option value='lowest'>Lowest health score</option>
                 </select>
-        <Paginate
+        <Paginate 
         recipesPerPage={recipesPerPage}
         allRecipes = {allRecipes.length}
         paginate = {paginate}
@@ -105,7 +97,10 @@ export default function Home (){
         
         <div className={css.cardContainer}>
         { !allRecipes.length?
-            <img alt='' src= {gifReload} className = {css.gif}/>
+            <div>
+                <img alt='' src= {gifReload} className = {css.gif}/> 
+            </div>
+
             :
             currentRecipe?.map((c) =>{
                 return(

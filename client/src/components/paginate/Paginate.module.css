@@ -1,11 +1,16 @@
 .paginate{
-    background:none;
+    background: fixed;
+    
 }
 
-.number{
+.number {
     background-color: aquamarine;
     margin: 0.5rem;
     border: none;
-    border-radius: 1.8rem;
-    
+    border-radius: 2rem;
+    display: inline-block;
+    text-align: center;
+    width: 2.5rem; /* Adjust the width to make the button bigger */
+    height: 2.5rem; /* Adjust the height to make the button bigger */
+    line-height: 2.5rem; /* Center the numbers vertically */
 }
